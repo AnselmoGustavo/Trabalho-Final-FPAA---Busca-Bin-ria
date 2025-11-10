@@ -163,3 +163,11 @@ Este projeto faz parte do conteúdo da disciplina que aborda:
 - ROTHFUSS, Patrick. **The Kingkiller Chronicle** (2007–2023).
 
 As obras literárias são utilizadas apenas como dados de exemplo para demonstrar o algoritmo de busca binária.
+
+---
+
+**Autores:** Ana Beatriz, Gustavo Anselmo, Karina Oliveira  
+**Instituição:** PUC Minas - Sistemas de Informação  
+**Disciplina:** Fundamentos de Projeto e Análise de Algoritmos  
+**Professora:** Roselene Henrique Pereira Costa  
+**Ano:** 2025

@@ -1,98 +1,63 @@
-# Instruções para Integração com o Trabalho Escrito
+# Instruções para Integração com o Docs
 
-Desenvolver um sistema console em C# que demonstre a **Busca Binária** através de um catálogo temático de livros de fantasia (Mistborn, Kingkiller Chronicle e Stormlight Archive) ordenados por ID, permitindo comparação com busca linear e análise de desempenho.
+Este documento fornece textos prontos e orientações para integrar o código desenvolvido às seções 3 e 4 do trabalho escrito da disciplina.
 
-### Texto Sugerido:
+---
+
+## 📝 Para a Seção "3. Implementação do Algoritmo"
 
 ```
 3. Implementação do Algoritmo
 
- - Menu interativo para seleção de operações
- - Demonstração passo a passo da busca binária
- - Alternância entre busca binária e linear para comparação
- - Instrumentação de métricas (comparações, tempo, complexidade teórica)
- - Catálogo fixo com 20 livros de fantasia ordenados por ID
 Para demonstrar a aplicação prática da Busca Binária, desenvolvemos um Sistema de 
-Biblioteca Digital em C#. O sistema gerencia um acervo de 20 livros técnicos 
-ordenados por ID único, permitindo buscas eficientes utilizando a técnica de 
-Divisão e Conquista.
+Biblioteca Digital em C#. O sistema gerencia um acervo de 20 livros de fantasia 
+(Mistborn, Kingkiller Chronicle e Stormlight Archive) ordenados por ID único, 
+permitindo buscas eficientes utilizando a técnica de Divisão e Conquista.
 
- - `Program.cs`: Interface de usuário e fluxo principal
- - `Livro.cs`: Modelo de dados para livros
- - `AlgoritmosBusca.cs`: Implementações de busca (binária iterativa, recursiva e linear)
- - Documentos `.md`: Apoio teórico e exemplos
 3.1 Estrutura do Sistema
 
 O projeto foi organizado em três componentes principais:
 
 a) Classe Livro (Livro.cs)
    Representa a entidade básica do sistema, contendo propriedades como ID, Título, 
- - Realizar busca binária por ID existente
- - Realizar busca binária por ID inexistente
- - Comparar com busca linear
- - Visualizar acervo
- - Exibir passo a passo da busca
    Autor, Ano de Publicação e Categoria. O ID é a chave de busca, mantendo o 
    acervo sempre ordenado.
-Exemplo de IDs utilizados:
-- Primeiro: 1001 (O Império Final)
-- Intermediário: 1095 ou 1155 (The Lost Metal / O Caminho dos Reis)
-- Último: 1205 (Rhythm of War)
-- Inexistente: 1300 (fora da faixa)
+
+b) Classe AlgoritmosBusca (AlgoritmosBusca.cs)
+   Implementa três algoritmos de busca:
+   
    - Versão Iterativa: Utiliza um laço while para dividir sucessivamente o 
      intervalo de busca, com complexidade espacial O(1).
    
    - Versão Recursiva: Demonstra a natureza recursiva da técnica de Divisão e 
- - Execuções lado a lado
- - Contagem de comparações reais vs. teórica (⌈log₂(n)⌉)
- - Tempo de execução em milissegundos
      Conquista, com complexidade espacial O(log n) devido à pilha de recursão.
    
-Complexidade Temporal:
-- Binária: O(log n)
-- Linear: O(n)
+   - Busca Linear: Implementada como referência de comparação, com complexidade O(n).
 
 c) Programa Principal (Program.cs)
-Complexidade Espacial:
-- Binária Iterativa: O(1)
-- Binária Recursiva: O(log n) (pilha de chamadas)
-- Linear: O(1)
+   Oferece interface interativa com menu contendo:
+   - Visualização completa do acervo
+   - Busca utilizando implementação iterativa
    - Busca utilizando implementação recursiva
    - Comparação entre Busca Binária e Busca Linear
    - Demonstração passo a passo do algoritmo
    - Análise teórica de complexidade
- - Conjunto de dados ordenado é pré-requisito
- - Para n pequeno, ganho relativo menor (mas ainda didático)
- - IDs devem permanecer únicos e crescentes
 
 3.2 Algoritmo - Versão Iterativa
 
 O pseudocódigo da implementação iterativa:
 
- - Expandir catálogo para 50+ livros para reforçar diferença
- - Adicionar busca por intervalo de IDs
- - Persistência em arquivo ou banco de dados
- - Benchmark com cronômetro de alta resolução (Stopwatch)
 ALGORITMO BuscaBinária(array, elemento)
   esquerda ← 0
   direita ← tamanho(array) - 1
   
   ENQUANTO esquerda ≤ direita FAÇA
- - Coesão e clareza na separação de responsabilidades
- - Nomes de métodos e variáveis descritivos
- - Comentários explicativos onde necessário
- - Formatação consistente
     meio ← esquerda + (direita - esquerda) / 2
     
     SE array[meio] = elemento ENTÃO
       RETORNA meio
     
     SE array[meio] > elemento ENTÃO
- - Código limpo e organizado
- - Resultado de busca correto
- - Dados ordenados preservados
- - Comparações condizentes com teoria
- - Documentação completa
       direita ← meio - 1
     SENÃO
       esquerda ← meio + 1
@@ -101,35 +66,19 @@ ALGORITMO BuscaBinária(array, elemento)
 FIM
 
 A implementação em C# encontra-se no arquivo AlgoritmosBusca.cs, linhas 22-47.
- - Catálogo base e ordenação
- - Implementação iterativa
- - Implementação recursiva
- - Busca linear para contraste
- - Demonstração passo a passo
- - Instrumentação
- - Ajuste final e revisão geral (com catálogo de fantasia)
 
 3.3 Algoritmo - Versão Recursiva
 
 O pseudocódigo da implementação recursiva:
 
 ALGORITMO BuscaBináriaRecursiva(array, elemento, esquerda, direita)
- - Clareza conceitual
- - Correção funcional
- - Eficiência observada
- - Qualidade da explicação
- - Organização do código
   SE esquerda > direita ENTÃO
     RETORNA -1  // Caso base: não encontrado
   
   meio ← esquerda + (direita - esquerda) / 2
   
- - Sumário do aprendizado
- - Pontos fortes
- - Oportunidades de expansão
- - Próximos passos
   SE array[meio] = elemento ENTÃO
-**Conclusão:** O trabalho entrega uma demonstração clara e funcional da Busca Binária aplicada a um catálogo temático de fantasia. A instrumentação reforça a importância da técnica e sua superioridade sobre a busca linear em conjuntos ordenados.
+    RETORNA meio
   
   SE array[meio] > elemento ENTÃO
     RETORNA BuscaBináriaRecursiva(array, elemento, esquerda, meio - 1)
@@ -163,29 +112,43 @@ QuickSort ou MergeSort). Portanto, a Busca Binária é mais vantajosa quando:
 - O array é consultado frequentemente
 - O número de buscas supera o custo de manter a ordenação
 - Os dados já chegam ordenados ou são raramente modificados
-```
 
+3.6 Funcionalidades Implementadas
+
+O sistema oferece as seguintes funcionalidades:
+- Menu interativo para seleção de operações
+- Visualização completa do acervo ordenado
+- Busca binária por ID existente ou inexistente
+- Comparação direta entre busca binária e linear
+- Demonstração passo a passo da busca (visualização do algoritmo)
+- Instrumentação de métricas (comparações, tempo, complexidade teórica)
+- Análise de crescimento para diferentes tamanhos de array
+
+Exemplo de IDs utilizados no acervo:
+- Primeiro: 1001 (O Império Final - Brandon Sanderson)
+- Intermediário: 1095 ou 1155 (The Lost Metal / O Caminho dos Reis)
+- Último: 1205 (Rhythm of War - Brandon Sanderson)
+- Inexistente: 1300 (fora da faixa, para demonstrar busca sem sucesso)
+```
 ---
 
 ## 📊 Para a Seção "4. Resultados"
-
-### Texto Sugerido:
 
 ```
 4. Resultados
 
 Para validar a eficiência da Busca Binária, realizamos diversos testes com o 
-Sistema de Biblioteca Digital desenvolvido. O acervo de 20 livros ordenados 
-por ID permitiu demonstrações práticas e mensuráveis do algoritmo.
+Sistema de Biblioteca Digital desenvolvido. O acervo de 20 livros de fantasia 
+ordenados por ID permitiu demonstrações práticas e mensuráveis do algoritmo.
 
 4.1 Experimento 1: Busca Bem-Sucedida
 
-Busca pelo livro "The Pragmatic Programmer" (ID: 1267)
+Busca pelo livro "A Liga da Lei" (ID: 1055)
 
 Resultado da Busca Binária Iterativa:
-- Posição encontrada: 12
+- Posição encontrada: 5
 - Número de comparações: 4
-- Tempo de execução: 0.0018 ms
+- Tempo de execução: ~0.002 ms
 - Complexidade teórica máxima: ⌈log₂(20)⌉ = 5 comparações
 
 Análise: O algoritmo utilizou 80% da complexidade máxima (4 de 5 comparações), 
@@ -193,31 +156,31 @@ demonstrando eficiência próxima ao caso médio.
 
 4.2 Experimento 2: Comparação com Busca Linear
 
-Busca pelo último livro do acervo (ID: 1456) - Pior Caso
+Busca pelo último livro do acervo (ID: 1205 - Rhythm of War) - Pior Caso
 
 Busca Binária:
 - Comparações: 5
-- Tempo: 0.0022 ms
+- Tempo: ~0.002 ms
 - Complexidade: O(log n)
 
 Busca Linear:
 - Comparações: 20
-- Tempo: 0.0031 ms
+- Tempo: ~0.003 ms
 - Complexidade: O(n)
 
 Vantagem da Busca Binária: 75% de redução no número de comparações.
 
 4.3 Experimento 3: Demonstração Passo a Passo
 
-Busca pelo ID 1267 com visualização de cada iteração:
+Busca pelo ID 1055 com visualização de cada iteração:
 
-Passo 1: Intervalo [0..19] → Meio = 9 (ID: 1178) → Ir para DIREITA
-Passo 2: Intervalo [10..19] → Meio = 14 (ID: 1312) → Ir para ESQUERDA
-Passo 3: Intervalo [10..13] → Meio = 11 (ID: 1234) → Ir para DIREITA
-Passo 4: Intervalo [12..13] → Meio = 12 (ID: 1267) → ENCONTRADO!
+Passo 1: Intervalo [0..19] → Meio = 9 (ID: 1105) → Ir para ESQUERDA
+Passo 2: Intervalo [0..8] → Meio = 4 (ID: 1045) → Ir para DIREITA
+Passo 3: Intervalo [5..8] → Meio = 6 (ID: 1067) → Ir para ESQUERDA
+Passo 4: Intervalo [5..5] → Meio = 5 (ID: 1055) → ENCONTRADO!
 
 Observação: A cada passo, o espaço de busca é reduzido pela metade 
-(20 → 10 → 4 → 2), confirmando o comportamento logarítmico.
+(20 → 9 → 4 → 1), confirmando o comportamento logarítmico.
 
 4.4 Análise de Escalabilidade
 
@@ -251,7 +214,7 @@ Para n = 20: pilha de recursão máxima = 5 níveis (desprezível na prática)
 4.6 Aplicabilidade Prática
 
 O sistema desenvolvido demonstra aplicabilidade em:
-- Sistemas de bibliotecas e catálogos
+- Sistemas de bibliotecas e catálogos temáticos
 - Bancos de dados (índices B-tree utilizam conceito similar)
 - Sistemas de autocompletar
 - Busca em dicionários e glossários
@@ -294,75 +257,4 @@ Os experimentos demonstram que a escolha do algoritmo adequado pode resultar
 em ganhos significativos de desempenho, especialmente em sistemas que lidam 
 com grandes quantidades de informação.
 ```
-
 ---
-
-## 🎓 Para Incluir no Corpo do Trabalho
-
-### Figuras Sugeridas:
-
-**Figura 1:** Screenshot do menu principal do sistema
-**Figura 2:** Demonstração passo a passo da busca
-**Figura 3:** Comparação de desempenho (gráfico de barras)
-**Figura 4:** Crescimento de comparações por tamanho do array (gráfico de linha)
-
-### Trechos de Código para Incluir:
-
-1. **Código da busca binária iterativa** (AlgoritmosBusca.cs, linhas 22-47)
-2. **Código da busca binária recursiva** (AlgoritmosBusca.cs, linhas 53-79)
-3. **Estrutura da classe Livro** (Livro.cs)
-
----
-
-## 📸 Capturando Screenshots
-
-Para incluir no documento, capture screenshots de:
-
-1. **Menu principal** (execute: `dotnet run`, escolha qualquer opção)
-2. **Acervo completo** (opção 1)
-3. **Busca bem-sucedida** (opção 2, buscar ID 1267)
-4. **Demonstração passo a passo** (opção 5, buscar ID 1267)
-5. **Comparação de algoritmos** (opção 4, buscar ID 1456)
-6. **Análise de complexidade** (opção 6)
-
----
-
-## 📝 Citação do Código Fonte
-
-No documento, você pode referenciar:
-
-```
-"A implementação completa do sistema encontra-se disponível no diretório 
-BibliotecaDigital/, incluindo o código-fonte comentado e documentação técnica 
-(README.md). O projeto está estruturado em arquivos modulares para facilitar 
-a compreensão e manutenção."
-```
-
----
-
-## ✅ Checklist de Integração
-
-- [ ] Copiar texto sugerido para seção 3 (Implementação)
-- [ ] Copiar texto sugerido para seção 4 (Resultados)
-- [ ] Capturar screenshots do sistema em execução
-- [ ] Incluir trechos de código relevantes
-- [ ] Criar gráficos de comparação (opcional)
-- [ ] Referenciar o código fonte no anexo
-- [ ] Revisar formatação e ABNT
-
----
-
-## 💡 Dica Final
-
-O código está totalmente comentado e organizado. Você pode incluir os arquivos 
-completos como anexo do trabalho ou disponibilizá-los em um repositório GitHub 
-para a professora ter acesso ao código completo.
-
-**Estrutura sugerida do documento:**
-
-1. Introdução
-2. Fundamentação Teórica (Divisão e Conquista)
-3. Implementação do Algoritmo ← **Use o texto sugerido acima**
-4. Resultados ← **Use o texto sugerido acima**
-5. Referências
-6. Anexos (Código-fonte completo)

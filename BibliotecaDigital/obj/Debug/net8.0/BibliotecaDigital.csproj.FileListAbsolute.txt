@@ -12,3 +12,4 @@ C:\Users\Gustavo\Desktop\trabalho_final_FPAA\BibliotecaDigital\obj\Debug\net8.0\
 C:\Users\Gustavo\Desktop\trabalho_final_FPAA\BibliotecaDigital\obj\Debug\net8.0\BibliotecaDigital.pdb
 C:\Users\Gustavo\Desktop\trabalho_final_FPAA\BibliotecaDigital\obj\Debug\net8.0\BibliotecaDigital.genruntimeconfig.cache
 C:\Users\Gustavo\Desktop\trabalho_final_FPAA\BibliotecaDigital\obj\Debug\net8.0\ref\BibliotecaDigital.dll
+C:\Users\Gustavo\Desktop\trabalho_final_FPAA\BibliotecaDigital\obj\Debug\net8.0\BibliotecaDigital.sourcelink.json
